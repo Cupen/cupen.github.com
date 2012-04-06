@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+  <name url ="#">ascii-player</name>
+  <describe>JAVA实现的字符播放器，源自网上 bad apple 字符播放，实现很容易，其原理是每秒显示多副文本内容，做好缓冲就行了。我觉得太好玩了，忍不住想弄个完整点的字符播放器。现在不需要直接面对文件目录了，资源都打包在zip文件里。暂时只有bad apple资源，以后会出来什么呢？嘎嘎，我会努力的。</describe>
+  
+  <information>
+    <edition version="beta 4.1">除了基本的播放功能，已经可以从zip文件里读取资源了。zip文件里的目录结构如下</edition>
+    <edition version="beta 4.0">空格键-暂停/播放</edition>
+  </information>
+  
+  <release>
+    <code url="#">ascii-player_Beta5.0_src.zip</code>
+    <binary url="#">ascii-player_Beta5.0</binary>
+    <others>
+      <other url="#">bad_apple.zip</other> </others></release>
+</Project>
