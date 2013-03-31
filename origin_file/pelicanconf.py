@@ -5,6 +5,8 @@ AUTHOR = u'Cupen<Cupenoruler at gmail dot com>'
 SITENAME = u"Cupen' blog"
 # SITEURL = u'http://cupenoruler.github.com'
 SITEURL = u'feeds'
+DISQUS_SITENAME = u'cupenblog'
+
 
 TIMEZONE = 'Asia/Chongqing'
 
@@ -22,7 +24,7 @@ LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
 SOCIAL = (('github', 'https://github.com/Cupenoruler'),
           ('weibo', 'http://weibo.com/cupenoruler'),)
 		  
-GITHUB_URL = u'https://github.com/Cupenoruler'
+# GITHUB_URL = u'https://github.com/Cupenoruler'
 
 DEFAULT_PAGINATION = 5
 

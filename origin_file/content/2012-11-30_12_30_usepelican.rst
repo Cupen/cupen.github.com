@@ -1,0 +1,10 @@
+pelican初步使用
+#########################
+
+:date: 2013-04-01 01:44:55
+:tags: pelican,doc
+:slug: my-super-post
+:author: Cupen<Cupenoruler AT foxmail DOT com>
+:category: doc
+
+准备列一个pelican的初步使用说明~

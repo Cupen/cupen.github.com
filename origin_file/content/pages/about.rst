@@ -1,10 +1,13 @@
-:作者: Cupen
-:邮箱: Cupenoruler@foxmail.com
-
 about
 ###################
 
+:date: 2013-04-01 01:33:27
+:tags: about
+:slug: my-super-post
+:author: Cupen<Cupenoruler AT foxmail DOT com>
+:category: about
 
+本博客使用pelican生成，主题丑爆了,以后改吧~  睡觉先~
 
 Handsome boy~
 
