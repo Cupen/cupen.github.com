@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cupen' blog</title><link href="feeds/" rel="alternate"></link><link href="feeds/feeds/doc.atom.xml" rel="self"></link><id>feeds/</id><updated>2013-04-01T01:44:55+08:00</updated><entry><title>pelican初步使用</title><link href="feeds/my-super-post.html" rel="alternate"></link><updated>2013-04-01T01:44:55+08:00</updated><author><name>Cupen&lt;Cupenoruler AT foxmail DOT com&gt;</name></author><id>tag:feeds,2013-04-01:my-super-post.html</id><summary type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
-</summary><category term="pelican"></category><category term="doc"></category></entry></feed>
