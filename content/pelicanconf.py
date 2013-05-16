@@ -16,9 +16,9 @@ THEME = "themes/tuxlite_tbs"
 
 
 # Blogroll
-LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
-          ('Python.org', 'http://python.org'),
-          ('Jinja2', 'http://jinja.pocoo.org'))
+LINKS =  (('pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
+          ('jinja2', 'http://jinja.pocoo.org'),
+		  ('xuqeiu','http://xueqiu.com/'))
 
 # Social widget
 SOCIAL = (('github', 'https://github.com/Cupenoruler'),
