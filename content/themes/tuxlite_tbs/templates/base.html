@@ -9,14 +9,23 @@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-    <script src="{{ SITEURL }}/theme/html5.js"></script>
+    <script src="{{ SITEURL }}/theme/lib/html5.js"></script>
     <![endif]-->
-	<!--script src="{{ SITEURL }}/theme/helloboy.js" type="text/javascript" ></script-->
+	<!--script src="{{ SITEURL }}/theme/js/helloboy.js" type="text/javascript" ></script-->
     <!-- Le styles -->
-    <link href="{{ SITEURL }}/theme/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/theme/bootstrap.min.responsive.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
+	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script-->
+	<script src="{{ SITEURL }}/theme/lib/sea.js" 
+			type="text/javascript" 
+			data-config="{{ SITEURL }}/theme/lib/sea.config.js" 
+			data-main="">
+	</script>
+	<script src=""></script>
+	
+	
+    <link href="{{ SITEURL }}/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/local.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
 	
 	<!--script type="text/javascript">
 	window.onload = function(){
@@ -139,9 +148,8 @@
 <p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} 2012</p>
 </footer>
 
-</div> <!-- /container -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+</div>
+
 {% include "analytics.html" %}
 {% include "github.html" %} 
 </body>

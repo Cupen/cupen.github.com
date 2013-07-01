@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="feeds/" rel="alternate"></link><link href="feeds/feeds/all.atom.xml" rel="self"></link><id>feeds/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解C/S之间的“交流障碍”</title><link href="feeds/guai-xiang-fa-guan-yu-huan-jie-cszhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-cszhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法应用场景是在 HTTP这种“请求-应答”式的数据交换方式下。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="feeds/" rel="alternate"></link><link href="feeds/feeds/text.atom.xml" rel="self"></link><id>feeds/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解C/S之间的“交流障碍”</title><link href="feeds/guai-xiang-fa-guan-yu-huan-jie-cszhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-cszhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法应用场景是在 HTTP这种“请求-应答”式的数据交换方式下。
 先描述一个普通的web应用的运作过程。毕竟是用于具体应用的，这里我只描述应用上可见的，细节上的请无视之。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol class="arabic simple"&gt;
@@ -143,8 +143,4 @@
 &lt;span class="c1"&gt;; 2 html文本（信息量太少了）&lt;/span&gt;
 &lt;span class="na"&gt;xdebug.trace_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="xdebug"></category><category term="php"></category></entry><entry><title>pelican初步使用</title><link href="feeds/my-super-post.html" rel="alternate"></link><updated>2013-04-01T01:44:55+08:00</updated><author><name>Cupen&lt;Cupenoruler AT foxmail DOT com&gt;</name></author><id>tag:feeds,2013-04-01:my-super-post.html</id><summary type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
-&lt;/div&gt;
-</summary><category term="pelican"></category><category term="doc"></category></entry></feed>
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="xdebug"></category><category term="php"></category></entry></feed>
