@@ -48,8 +48,8 @@
     ; 1 表示追加式写入文件
     xdebug.trace_options = 0
 
-    ; 不需要自动trace,除非你希望每次执行都会trace
-	; 触发性trace (与auto_trace互斥) 触发trace的方式: 在参数或cookie里加入XDEBUG_TRACE
+    ; 不需要自动trace,除非你希望每次执行都会trace(与auto_trace互斥)
+	; 触发trace的方式: 在参数或cookie里加入XDEBUG_TRACE
     xdebug.auto_trace = 0
     xdebug.trace_enable_trigger = 1
 	

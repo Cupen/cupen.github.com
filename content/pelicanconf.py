@@ -13,12 +13,14 @@ TIMEZONE = 'Asia/Chongqing'
 DEFAULT_LANG = u'zh'
 
 THEME = "themes/tuxlite_tbs"
+THEME = "themes/html5-dopetrope"
+THEME = "themes/pelican-cait"
 
 
 # Blogroll
 LINKS =  (('pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
           ('jinja2', 'http://jinja.pocoo.org'),
-		  ('xuqeiu','http://xueqiu.com/'))
+		  ('xueqiu','http://xueqiu.com/'))
 
 # Social widget
 SOCIAL = (('github', 'https://github.com/Cupenoruler'),

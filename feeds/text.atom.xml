@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="feeds/" rel="alternate"></link><link href="feeds/feeds/text.atom.xml" rel="self"></link><id>feeds/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解C/S之间的“交流障碍”</title><link href="feeds/guai-xiang-fa-guan-yu-huan-jie-cszhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-cszhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法应用场景是在 HTTP这种“请求-应答”式的数据交换方式下。
-先描述一个普通的web应用的运作过程。毕竟是用于具体应用的，这里我只描述应用上可见的，细节上的请无视之。&lt;/p&gt;
-&lt;blockquote&gt;
+先描述一个普通web应用的运作,不要在意细节 ;)&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Client 向Server发出请求;&lt;/li&gt;
-&lt;li&gt;Server处理请求并发出应答;&lt;/li&gt;
-&lt;li&gt;Client 收到应答；&lt;/li&gt;
-&lt;li&gt;Client 分析应答，并产生对应的“行为&amp;quot;；&lt;/li&gt;
+&lt;li&gt;Server收到请求处理之，然后发出应答;&lt;/li&gt;
+&lt;li&gt;Client 收到应答;&lt;/li&gt;
+&lt;li&gt;Client 分析应答，并产生对应的“行为&amp;quot;;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;
 &lt;p&gt;如上，普通web应用的运作过程就是不断地重复以上步骤。&lt;/p&gt;
-&lt;p&gt;且看 4 这里，Client需要解析Server应答的数据然后做出相应的”行为&amp;quot;(这里的行为可以是弹个窗、播个动画之类的)，那么“Client在怎样的情况下做什么 ”就需要由数据来&amp;quot;描述&amp;quot;了。这就需要Client和Server之间立一个约定，这个约定定义了Server应答过来的各项数据的含义，Client按照约定来解析即可。至于数据格式用什么，小子就不乱吹长短了，总之它可以是非文本的Msgpack,Protocol buffers等等，也可以是纯文本的JSON,XML,甚至是脚本语言源码（如JavaScript）。&lt;/p&gt;
-&lt;p&gt;如此，在一般情况下也就够了、万事大吉了，程序员们就可以安心回家睡觉觉了。但是，实际情况下Server需要提供的数据形式远远不止一个，可能得成百上千乃至上万。而这些数据可能分别由不同的或相同的接口提供，并且这些接口的数量也可能成百上千乃至上万，更要命的是这些接口又是由不同的程序员在不同的时间不同的思想状态下编码而成的。如果没有一个严格统一的规则来做约定的话，Client和Server之间的“沟通”会随着接口增多而越来越复杂。就好象两个半吊子程序员互相吹牛，吹的方向越多就越是不堪入耳。&lt;/p&gt;
-&lt;p&gt;未完待续……&lt;/p&gt;
+&lt;p&gt;且看编号 4 里描述的，Client需要解读Server应答过来的数据，然后做出相应的”行为&amp;quot;，这里的行为
+可以是弹个窗、播个动画之类或者干脆是再发个请求等等。这就需要Client和Server之间立一个小约定，
+或者叫“单方面协议”。这个“单方面协议”约定了Server端应答过来的各项数据的含义，Client程序按照约
+定来理解其含义即可。至于数据格式用什么，目前小子知道的仅有：二进制的Msgpack,Protocol buffers
+等等，纯文本的JSON,XML,甚至是脚本语言源码（如JavaScript）。&lt;/p&gt;
+&lt;p&gt;如此，也就万事大吉了，程序员们就可以安心回家睡觉觉了。但是，Server程序需要提供的数据形式远远
+不止一个，可能得成百上千乃至上万。而这些数据可能由不同的接口提供，并且这些接口的数量也可能成
+百上千乃至上万，更要命的是这些接口又是由不同的coder在不同的时间不同的状态下coding而成。失恋
+的coder、陷入爱河的coder、屌丝coder和高富帅coder，他们在代码上的设计肯定是千差万别，如果数据
+的含义由他们各自拟定的话，得让他们达成共识才行，否则随着接口数量的增加，数据含义也会越来越多，
+能搞清它的人会越来越少，文档会越写越让人不想看。&lt;/p&gt;
+&lt;p&gt;目前小子使用给数据集合编号的方式解决这个问题，我很荣幸、很无耻地将每个数据单位称为消息。&lt;/p&gt;
+&lt;p&gt;未完待续……
+欲知后事如何，请听下个月分解。&lt;/p&gt;
 </summary><category term="http"></category><category term="cs"></category></entry><entry><title>小用xdebug</title><link href="feeds/xiao-yong-xdebug.html" rel="alternate"></link><updated>2013-05-17T00:12:41+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-05-17:xiao-yong-xdebug.html</id><summary type="html">&lt;p&gt;经常忘了xdebug的配置，老查文档慢的要死，挑出常用的配置记录一下。&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;关于IDE和一些其它周边工具以后再补充吧。&lt;/div&gt;
@@ -111,8 +120,8 @@
 &lt;span class="c1"&gt;; 1 表示追加式写入文件&lt;/span&gt;
 &lt;span class="na"&gt;xdebug.trace_options&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0&lt;/span&gt;
 
-&lt;span class="c1"&gt;; 不需要自动trace,除非你希望每次执行都会trace&lt;/span&gt;
-    &lt;span class="c1"&gt;; 触发性trace (与auto_trace互斥) 触发trace的方式: 在参数或cookie里加入XDEBUG_TRACE&lt;/span&gt;
+&lt;span class="c1"&gt;; 不需要自动trace,除非你希望每次执行都会trace(与auto_trace互斥)&lt;/span&gt;
+    &lt;span class="c1"&gt;; 触发trace的方式: 在参数或cookie里加入XDEBUG_TRACE&lt;/span&gt;
 &lt;span class="na"&gt;xdebug.auto_trace&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0&lt;/span&gt;
 &lt;span class="na"&gt;xdebug.trace_enable_trigger&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;1&lt;/span&gt;
 
