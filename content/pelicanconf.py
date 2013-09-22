@@ -12,8 +12,11 @@ TIMEZONE = 'Asia/Chongqing'
 
 DEFAULT_LANG = u'zh'
 
-THEME = "themes/tuxlite_tbs"
-THEME = "themes/html5-dopetrope"
+# THEME = "themes/tuxlite_tbs"
+# THEME = "themes/html5-dopetrope"
+
+# THEME = "themes/itsmyidea"
+# THEME = "themes/nmnlist"
 THEME = "themes/pelican-cait"
 
 
