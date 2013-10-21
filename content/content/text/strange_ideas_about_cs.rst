@@ -5,11 +5,11 @@
 :author: cupen
 :contact: contact.
 :tags: http,cs
-:version: 1.0.
+:version: 1.2
 :date: 2013-07-02 01:33:26
 :copyright: copyleft.
 
-本想法是应用在如HTTP这样单向“请求-应答”式的数据交换方式下。
+本想法是应用在如HTTP这样“请求-应答”式的数据交换方式下。
 先描述一个普通的web应用的运作( 不要在意细节 ;b  )
 
 1. Client 向Server发出请求;
@@ -17,8 +17,7 @@
 3. Client 收到应答;
 4. Client 分析应答，并产生对应的“行为”;
 
-如上，普通web应用的运作过程就是不断地重复以上步骤。
-这有点像我们人与人之间对话的过程，我将之拟人化也毫不违和：Client向Server提出问题，再收到Server的回答，
+普通web应用的运作过程就是不断地重复以上步骤。这有点像我们人与人之间对话的过程，我将之拟人化也毫不违和：Client向Server提出问题，再收到Server的回答，
 然后根据Server的回答来行动。之后Client继续向Server提问…… 往复循环。
 但是区区程序员无法让Client与Server如人一样智能地对话(扯AI我就暴露了，赶紧扯回来)。他们只能为Client和
 Server立一个约定，这个约定定义了Server应答过来的各项数据的含义，Server按约定来提供数据，Client按约定来
