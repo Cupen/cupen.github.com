@@ -1,48 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="feeds/" rel="alternate"></link><link href="feeds/feeds/all.atom.xml" rel="self"></link><id>feeds/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link href="feeds/guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法是应用在如HTTP这样单向“请求-应答”式的数据交换方式下。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="feeds/" rel="alternate"></link><link href="feeds/feeds/all.atom.xml" rel="self"></link><id>feeds/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link href="feeds/guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
 先描述一个普通的web应用的运作( 不要在意细节 ;b  )&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Client 向Server发出请求;&lt;/li&gt;
 &lt;li&gt;Server 收到请求处理之，然后发出应答;&lt;/li&gt;
-&lt;li&gt;Client 收到应答;&lt;/li&gt;
-&lt;li&gt;Client 分析应答，并产生对应的“行为”;&lt;/li&gt;
+&lt;li&gt;Client 收到应答,然后解读应答;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;如上，普通web应用的运作过程就是不断地重复以上步骤。
-这有点像我们人与人之间对话的过程，我将之拟人化也毫不违和：Client向Server提出问题，再收到Server的回答，
-然后根据Server的回答来行动。之后Client继续向Server提问…… 往复循环。
-但是区区程序员无法让Client与Server如人一样智能地对话(扯AI我就暴露了，赶紧扯回来)。他们只能为Client和
-Server立一个约定，这个约定定义了Server应答过来的各项数据的含义，Server按约定来提供数据，Client按约定来
-“理解”数据。至于数据格式，那得另起话题了。&lt;/p&gt;
+&lt;p&gt;普通web应用的运作过程就是不断地重复以上步骤。这有点像我们人与人之间对话的过程，我将之拟人化也毫不违和：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Client君向Server君提问;&lt;/li&gt;
+&lt;li&gt;Server君回答了Client君;&lt;/li&gt;
+&lt;li&gt;Client君收到答案并根据答案做出反应;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;奈何程序员能力有限，还无法让Client与Server如人一样智能地对话(扯AI我就暴露了，赶紧扯回来)。他们只能为Client和Server立一个约定，这个约定定义了Client与Server之间传递的各项数据的含义。Server按约定来提供数据，Client按约定来解读数据。至于数据的格式，那得另起话题了。&lt;/p&gt;
 &lt;blockquote&gt;
 （题外话:二进制如 Msgpack,Protocol buffers等等，可读文本如 JSON,XML,甚至是脚本语言源码（如JavaScript））&lt;/blockquote&gt;
-&lt;p&gt;如此，项目一开始程序员们分分钟就约定好了数据的含义：“A接口返回数据dataA，B接口返回数据dataB……”。Client
-和Server轻松快乐地进行着“你问我答”，程序员们便安心回家睡觉觉了，皆大欢喜。&lt;/p&gt;
-&lt;p&gt;但是好景不长。后续的新增、修改需求导致Server提供的接口大量地增改，甚至需要在个别接口里提供已经由其它接
-口提供过的数据，但Client依然要为不同接口返回的数据分别做处理，这严重增加了程序员们的工作量。更惨烈的是，
-根据约定，Server的x接口提供XX数据，而当Server无法提供XX数据时就需要做其它应答了。就好比Client问Server：“现在几点钟？
-”，常规情况下Server答曰：“22:43:00”，意外情况下答曰“我没带表，你可以问其他Server。”，或者更意外的情况：“我
-已经死掉了，现在你听到的是我十年前的录音。”&lt;/p&gt;
-&lt;p&gt;对人来说，这种情况实在小case. 但在程序上你得新增对数据含义的约定以区分各种意外情况。这还不算，由于每个
-Server提供的接口里都可能有多个逻辑分支，那么每个接口都要为各种逻辑分支新增数据含义的约定。至此，程序员们
-应该会感觉到Client与Server之间“交流”有点困难了，这时候如果还不反思这种毫无设计的做法的话，估计是打算玩命
-地领加班费了。&lt;/p&gt;
-&lt;p&gt;当然，程序员们又不是猪，英明的他们决定要认认真真地重新设计。
-先理一下前面碰到两个巨坑：&lt;/p&gt;
+&lt;p&gt;如此，项目一开始程序员们分分钟就约定好了数据的含义：“接口A返回数据dataA，接口B返回数据dataB……”。Client和Server轻松快乐地进行着“你问我答”，程序员们便安心回家睡觉觉了，皆大欢喜……意淫结束，我们来看下实际情况中的问题：&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
-&lt;li&gt;数据含义的约定无法复用或极难复用。想象一下，如果多个接口返回的数据中都包含了dataX，如何避免重复地约定dataX的数据含义？&lt;/li&gt;
-&lt;li&gt;数据含义的约定与提供数据的Server接口绑死了，于是Server接口必须返回约定好的数据，否则霹雳啪啪轰隆咔咔出事故扣工资卷铺盖。&lt;/li&gt;
+&lt;li&gt;数据含义的约定无法复用或极难复用。想象一下，如果多个接口返回的数据中都包含了dataX，如何避免重复地约定dataX各项数据的含义？&lt;/li&gt;
+&lt;li&gt;数据含义的约定与提供数据的Server接口绑死了，于是Server接口A必须返回约定好的dataA,不能是dataB,否则霹雳啪啪轰隆咔咔出事故扣工资卷铺盖。当然，你也可以约定好接口A会返回的dataA或dataB,但这又回到问题&amp;quot;1&amp;quot;了。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;好的 我的怪想法总算可以粉墨登场了：&lt;/p&gt;
-&lt;p&gt;我们给每个数据集合加入唯一标识，而数据含义则围绕着唯一标识来进行约定，Client根据这个唯一标识来处理对应的数据
-集合。如此，每个数据集合都通过唯一标识来区分，只要Server接口返回了自带唯一标识的数据集合，Client便能按唯一标
-识来“理解”，对于表示意外情况的数据含义也只需要约定一次即可。&lt;/p&gt;
+&lt;p&gt;假设某个Server接口专门提供“现在几点钟？”这种问题的答案，返回的数据已经约定好是个时间描述，如“2013-07-02 01:33:26”，但是某些极端情况也需要考虑，譬如“我没带表，你可以问其他Server。”，或者离奇点的情况：“我已经挂球了，现在你听到的是十年前我临死前的录音。”。&lt;/p&gt;
+&lt;p&gt;对掌握了自然语言的人类来说，表达和处理以上例子中的信息实在小case.但对于程序，则需要对每种情况约定好相应的数据含义。至此，程序员们应该会感觉到Client与Server之间“交流”有点困难了，如果这时候还不反思这种毫无设计的做法的话，估计是打算玩命领加班费了。&lt;/p&gt;
+&lt;p&gt;好的 现在加一丁点设计，我给每个数据集合加入唯一标识（非绝对唯一，仅让不同数据集合的标识唯一即可），而数据含义则围绕着唯一标识来进行约定，Client根据这个唯一标识来处理对应的数据集合。如此，每个数据集合都通过唯一标识来区分，只要Server接口返回了带有这个唯一标识的数据集合，Client都能根据唯一标识来“理解”，对于表示意外情况的数据含义也只需要约定一次即可。&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;举个解决坑1的例子，我们将{气温、天气、风力、地点、标识}这个数据集合中的标识定义为“天气预报”，那么对于任何Sever接口返回的带有“天气信息”标识的数据集合，Client都按“天气信息”的约定来处理这个数据集合，丝毫不用理会这个“天气信息”是来自哪个Server接口，而这个“天气信息”的数据含义只需约定一次。&lt;/li&gt;
 &lt;li&gt;举个解决坑2的例子，假设Client向Server请求“天气信息”，而这时候Server可能会碰到多种情况：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;生成“天气信息”的操作未完成，可以返回标识为“重复之前的请求”的数据。&lt;/li&gt;
+&lt;li&gt;生成“天气信息”的操作未完成，可以返回标识为“稍后再试”的数据。&lt;/li&gt;
 &lt;li&gt;Client的Session信息过期了，可以返回标识为“重新登录”的数据。&lt;/li&gt;
 &lt;li&gt;Server停服中，可以返回标识为“停服”的数据(包含一条文字公告更好)。&lt;/li&gt;
 &lt;/ul&gt;

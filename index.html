@@ -57,23 +57,23 @@
                         <a href="./guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html" rel="bookmark"><h1>怪想法—关于缓解请求与应答之间的“交流”障碍</h1></a>
                     </header>
                     <section class="post-content">
-                        <p>本想法是应用在如HTTP这样单向“请求-应答”式的数据交换方式下。
+                        <p>本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
 先描述一个普通的web应用的运作( 不要在意细节 ;b  )</p>
 <ol class="arabic simple">
 <li>Client 向Server发出请求;</li>
 <li>Server 收到请求处理之，然后发出应答;</li>
-<li>Client 收到应答;</li>
-<li>Client 分析应答，并产生对应的“行为”;</li>
+<li>Client 收到应答,然后解读应答;</li>
 </ol>
-<p>如上，普通web应用的运作过程就是不断地重复以上步骤。
-这有点像我们人与人之间对话的过程，我将之拟人化也毫不违和：Client向Server提出问题，再收到Server的回答，
-然后根据Server的回答来行动。之后Client继续向Server提问…… 往复循环。
-但是区区程序员无法让Client与Server如人一样智能地对话(扯AI我就暴露了，赶紧扯回来)。他们只能为Client和
-Server立一个约定，这个约定定义了Server应答过来的各项数据的含义，Server按约定来提供数据，Client按约定来
-“理解”数据。至于数据格式，那得另起话题了。</p>
+<p>普通web应用的运作过程就是不断地重复以上步骤。这有点像我们人与人之间对话的过程，我将之拟人化也毫不违和：</p>
+<ol class="arabic simple">
+<li>Client君向Server君提问;</li>
+<li>Server君回答了Client君;</li>
+<li>Client君收到答案并根据答案做出反应;</li>
+</ol>
+<p>奈何程序员能力有限，还无法让Client与Server如人一样智能地对话(扯AI我就暴露了，赶紧扯回来)。他们只能为Client和Server立一个约定，这个约定定义了Client与Server之间传递的各项数据的含义。Server按约定来提供数据，Client按约定来解读数据。至于数据的格式，那得另起话题了。</p>
 <blockquote>
 （题外话:二进制如 Msgpack,Protocol buffers等等，可读文本如 JSON,XML,甚至是脚本语言源码（如JavaScript））</blockquote>
-<p>如此，项目一开始程序员们分分钟就约定好了数据的含义 ...</p>
+<p>如此，项目一开始程序员们分分钟就约定好了数据的含义：“接口A返回数据dataA，接口B返回数据dataB……”。Client和Server轻松快乐地进行着“你问我答”，程序员们便安心回家睡觉觉了，皆大欢喜……意淫结束 ...</p>
                     </section>
                 </article>
             </li>
