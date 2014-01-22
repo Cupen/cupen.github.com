@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="feeds/" rel="alternate"></link><link href="feeds/feeds/text.atom.xml" rel="self"></link><id>feeds/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link href="feeds/guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="http://cupen.github.com/" rel="alternate"></link><link href="http://cupen.github.com/feeds%5Ctext.atom.xml" rel="self"></link><id>http://cupen.github.com/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link href="http://cupen.github.com/guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.com,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
 先描述一个普通的web应用的运作( 不要在意细节 ;b  )&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Client 向Server发出请求;&lt;/li&gt;
@@ -38,7 +38,7 @@
 &lt;div class="line"&gt;未完待续……&lt;/div&gt;
 &lt;div class="line"&gt;欲知后事如何，请再听下个月分解。&lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="http"></category><category term="cs"></category></entry><entry><title>小用xdebug</title><link href="feeds/xiao-yong-xdebug.html" rel="alternate"></link><updated>2013-05-17T00:12:41+08:00</updated><author><name>cupen</name></author><id>tag:feeds,2013-05-17:xiao-yong-xdebug.html</id><summary type="html">&lt;p&gt;经常忘了xdebug的配置，老查文档慢的要死，挑出常用的配置记录一下。&lt;/p&gt;
+</summary><category term="http"></category><category term="cs"></category></entry><entry><title>小用xdebug</title><link href="http://cupen.github.com/xiao-yong-xdebug.html" rel="alternate"></link><updated>2013-05-17T00:12:41+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.com,2013-05-17:xiao-yong-xdebug.html</id><summary type="html">&lt;p&gt;经常忘了xdebug的配置，老查文档慢的要死，挑出常用的配置记录一下。&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;关于IDE和一些其它周边工具以后再补充吧。&lt;/div&gt;
 &lt;div class="line"&gt;超详细的使用实例: &lt;a class="reference external" href="http://xdebug.org/docs/all"&gt;http://xdebug.org/docs/all&lt;/a&gt;&lt;/div&gt;
