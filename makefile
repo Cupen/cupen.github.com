@@ -3,7 +3,7 @@ PELICANOPTS=
 
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
-OUTPUTDIR=$(BASEDIR)/../output
+OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
@@ -36,6 +36,9 @@ help:
 	@echo '                                                                       '
 
 
+build: html serve
+	
+	
 html: clean $(OUTPUTDIR)/index.html
 	@echo 
 	@echo '==== finished ===='
@@ -71,7 +74,6 @@ ftp_upload: publish
 	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
 
 github: publish
-	ghp-import $(OUTPUTDIR)
-	git push origin gh-pages
+	bash push2github.sh $(OUTPUTDIR)
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload github
