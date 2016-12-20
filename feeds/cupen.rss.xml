@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>吹水轩 - cupen</title><link>https://cupen.github.io/</link><description>吃饭、睡觉、看书、抬杠。</description><lastBuildDate>Wed, 21 Dec 2016 03:19:00 +0800</lastBuildDate><item><title>关于游戏服务端日志</title><link>https://cupen.github.io/get-the-log.html</link><description>&lt;p&gt;占坑...... 提醒我吹完。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">cupen</dc:creator><pubDate>Wed, 21 Dec 2016 03:19:00 +0800</pubDate><guid isPermaLink="false">tag:cupen.github.io,2016-12-21:/get-the-log.html</guid></item><item><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link>https://cupen.github.io/ideas-1.html</link><description>&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
+先描述一个普通的web应用的运作( 不要在意细节 ;b  )&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Client 向Server发出请求;&lt;/li&gt;
+&lt;li&gt;Server …&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">cupen</dc:creator><pubDate>Tue, 02 Jul 2013 01:33:26 +0800</pubDate><guid isPermaLink="false">tag:cupen.github.io,2013-07-02:/ideas-1.html</guid><category>ideas</category></item><item><title>小用xdebug</title><link>https://cupen.github.io/usexdebug.html</link><description>&lt;p&gt;经常忘了xdebug的配置，搜索文档效率太低，姑且挑出常用的配置记录一下。&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;关于IDE和一些其它周边工具以后再补充吧。&lt;/div&gt;
+&lt;div class="line"&gt;超详细的使用实例: &lt;a class="reference external" href="http://xdebug.org/docs/all"&gt;http://xdebug.org/docs/all …&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">cupen</dc:creator><pubDate>Fri, 17 May 2013 00:12:41 +0800</pubDate><guid isPermaLink="false">tag:cupen.github.io,2013-05-17:/usexdebug.html</guid><category>xdebug</category><category>php</category></item><item><title>pelican初步使用</title><link>https://cupen.github.io/usepelican.html</link><description>&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">cupen</dc:creator><pubDate>Mon, 01 Apr 2013 01:44:55 +0800</pubDate><guid isPermaLink="false">tag:cupen.github.io,2013-04-01:/usepelican.html</guid><category>pelican</category><category>doc</category></item></channel></rss>

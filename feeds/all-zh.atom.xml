@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="http://cupen.github.com/" rel="alternate"></link><link href="http://cupen.github.com/feeds%5Call-zh.atom.xml" rel="self"></link><id>http://cupen.github.com/</id><updated>2013-07-02T01:33:26+08:00</updated><entry><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link href="http://cupen.github.com/guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html" rel="alternate"></link><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.com,2013-07-02:guai-xiang-fa-guan-yu-huan-jie-qing-qiu-yu-ying-da-zhi-jian-de-jiao-liu-zhang-ai.html</id><summary type="html">&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>吹水轩</title><link href="https://cupen.github.io/" rel="alternate"></link><link href="https://cupen.github.io/feeds/all-zh.atom.xml" rel="self"></link><id>https://cupen.github.io/</id><updated>2016-12-21T03:19:00+08:00</updated><entry><title>关于游戏服务端日志</title><link href="https://cupen.github.io/get-the-log.html" rel="alternate"></link><published>2016-12-21T03:19:00+08:00</published><updated>2016-12-21T03:19:00+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2016-12-21:/get-the-log.html</id><summary type="html">&lt;p&gt;占坑...... 提醒我吹完。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;占坑...... 提醒我吹完。&lt;/p&gt;
+</content></entry><entry><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link href="https://cupen.github.io/ideas-1.html" rel="alternate"></link><published>2013-07-02T01:33:26+08:00</published><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2013-07-02:/ideas-1.html</id><summary type="html">&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
+先描述一个普通的web应用的运作( 不要在意细节 ;b  )&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Client 向Server发出请求;&lt;/li&gt;
+&lt;li&gt;Server …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
 先描述一个普通的web应用的运作( 不要在意细节 ;b  )&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Client 向Server发出请求;&lt;/li&gt;
@@ -38,74 +44,17 @@
 &lt;div class="line"&gt;未完待续……&lt;/div&gt;
 &lt;div class="line"&gt;欲知后事如何，请再听下个月分解。&lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="http"></category><category term="cs"></category></entry><entry><title>小用xdebug</title><link href="http://cupen.github.com/xiao-yong-xdebug.html" rel="alternate"></link><updated>2013-05-17T00:12:41+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.com,2013-05-17:xiao-yong-xdebug.html</id><summary type="html">&lt;p&gt;经常忘了xdebug的配置，老查文档慢的要死，挑出常用的配置记录一下。&lt;/p&gt;
+</content><category term="ideas"></category></entry><entry><title>小用xdebug</title><link href="https://cupen.github.io/usexdebug.html" rel="alternate"></link><published>2013-05-17T00:12:41+08:00</published><updated>2013-05-17T00:12:41+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2013-05-17:/usexdebug.html</id><summary type="html">&lt;p&gt;经常忘了xdebug的配置，搜索文档效率太低，姑且挑出常用的配置记录一下。&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;关于IDE和一些其它周边工具以后再补充吧。&lt;/div&gt;
+&lt;div class="line"&gt;超详细的使用实例: &lt;a class="reference external" href="http://xdebug.org/docs/all"&gt;http://xdebug.org/docs/all …&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;经常忘了xdebug的配置，搜索文档效率太低，姑且挑出常用的配置记录一下。&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;关于IDE和一些其它周边工具以后再补充吧。&lt;/div&gt;
 &lt;div class="line"&gt;超详细的使用实例: &lt;a class="reference external" href="http://xdebug.org/docs/all"&gt;http://xdebug.org/docs/all&lt;/a&gt;&lt;/div&gt;
 &lt;div class="line"&gt;超详细的配置说明: &lt;a class="reference external" href="http://xdebug.org/docs/all_settings"&gt;http://xdebug.org/docs/all_settings&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[XDebug]&lt;/span&gt;
+&lt;pre class="code ini literal-block"&gt;
+&lt;span class="k"&gt;[XDebug]&lt;/span&gt;
 &lt;span class="c1"&gt;; 所有可配置项见 http://xdebug.org/docs/all_settings&lt;/span&gt;
 &lt;span class="na"&gt;zend_extension&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/usr/local/app/bin/php/ext/php_xdebug.so&amp;quot;&lt;/span&gt;
 
@@ -167,9 +116,13 @@
 &lt;span class="c1"&gt;; 1 给程序解析用的格式 （给其它工具设计的）&lt;/span&gt;
 &lt;span class="c1"&gt;; 2 html文本（信息量太少了）&lt;/span&gt;
 &lt;span class="na"&gt;xdebug.trace_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="xdebug"></category><category term="php"></category></entry><entry><title>pelican初步使用</title><link href="http://cupen.github.com/my-super-post.html" rel="alternate"></link><updated>2013-04-01T01:44:55+08:00</updated><author><name>Cupen&lt;Cupenoruler AT foxmail DOT com&gt;</name></author><id>tag:cupen.github.com,2013-04-01:my-super-post.html</id><summary type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
+&lt;/pre&gt;
+</content><category term="xdebug"></category><category term="php"></category></entry><entry><title>pelican初步使用</title><link href="https://cupen.github.io/usepelican.html" rel="alternate"></link><published>2013-04-01T01:44:55+08:00</published><updated>2013-04-01T01:44:55+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2013-04-01:/usepelican.html</id><summary type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="pelican"></category><category term="doc"></category></entry></feed>
+</summary><content type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="pelican"></category><category term="doc"></category></entry></feed>

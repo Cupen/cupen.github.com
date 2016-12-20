@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>吹水轩 - text</title><link href="https://cupen.github.io/" rel="alternate"></link><link href="https://cupen.github.io/feeds/text.atom.xml" rel="self"></link><id>https://cupen.github.io/</id><updated>2016-12-21T03:19:00+08:00</updated><entry><title>关于游戏服务端日志</title><link href="https://cupen.github.io/get-the-log.html" rel="alternate"></link><published>2016-12-21T03:19:00+08:00</published><updated>2016-12-21T03:19:00+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2016-12-21:/get-the-log.html</id><summary type="html">&lt;p&gt;占坑...... 提醒我吹完。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>吹水轩 - cupen</title><link href="https://cupen.github.io/" rel="alternate"></link><link href="https://cupen.github.io/feeds/cupen.atom.xml" rel="self"></link><id>https://cupen.github.io/</id><updated>2016-12-21T03:19:00+08:00</updated><entry><title>关于游戏服务端日志</title><link href="https://cupen.github.io/get-the-log.html" rel="alternate"></link><published>2016-12-21T03:19:00+08:00</published><updated>2016-12-21T03:19:00+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2016-12-21:/get-the-log.html</id><summary type="html">&lt;p&gt;占坑...... 提醒我吹完。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;占坑...... 提醒我吹完。&lt;/p&gt;
 </content></entry><entry><title>怪想法—关于缓解请求与应答之间的“交流”障碍</title><link href="https://cupen.github.io/ideas-1.html" rel="alternate"></link><published>2013-07-02T01:33:26+08:00</published><updated>2013-07-02T01:33:26+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2013-07-02:/ideas-1.html</id><summary type="html">&lt;p&gt;本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如HTTP）。
 先描述一个普通的web应用的运作( 不要在意细节 ;b  )&lt;/p&gt;
@@ -117,4 +117,12 @@
 &lt;span class="c1"&gt;; 2 html文本（信息量太少了）&lt;/span&gt;
 &lt;span class="na"&gt;xdebug.trace_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0&lt;/span&gt;
 &lt;/pre&gt;
-</content><category term="xdebug"></category><category term="php"></category></entry></feed>
+</content><category term="xdebug"></category><category term="php"></category></entry><entry><title>pelican初步使用</title><link href="https://cupen.github.io/usepelican.html" rel="alternate"></link><published>2013-04-01T01:44:55+08:00</published><updated>2013-04-01T01:44:55+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2013-04-01:/usepelican.html</id><summary type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
+&lt;/div&gt;
+</summary><content type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="pelican"></category><category term="doc"></category></entry></feed>

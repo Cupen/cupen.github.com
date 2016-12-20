@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>    小用xdebug
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+            <link rel="stylesheet" href="https://cupen.github.io/theme/css/normalize.css">
+        <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cupen.github.io/theme/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cupen.github.io/theme/css/main.css">
+
+    <link rel="stylesheet" href="https://cupen.github.io/theme/css/blog.css">
+    <link rel="stylesheet" href="https://cupen.github.io/theme/css/github.css">
+        <link href="https://cupen.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="吹水轩 Atom Feed" />
+        <script src="https://cupen.github.io/theme/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="wrapper">
+<header id="sidebar" class="side-shadow">
+    <hgroup id="site-header">
+        <a id="site-title" href="https://cupen.github.io"><h1><i class="icon-coffee"></i> 吹水轩</h1></a>
+        <p id="site-desc"> 吃饭、睡觉、看书、抬杠。 </p>
+    </hgroup>
+    <nav>
+        <ul id="nav-links">
+                <li><a href="https://cupen.github.io/pages/about.html">关于</a></li>
+                <li><a href="https://cupen.github.io/pages/duo-ming-qing-dan.html">夺命清单</a></li>
+        </ul>
+    </nav>
+<footer id="site-info">
+    <p>
+        Proudly powered by <a href="http://getpelican.com/" target="pelican">Pelican</a> and <a href="http://python.org/" target="python">Python</a>. Theme by <a href="https://github.com/hdra/pelican-cait" target="github">hndr</a>.
+    </p>
+    <p>
+        Textures by <a href="http://subtlepatterns.com/" target="subtlepatterns">Subtle Pattern</a>. Font Awesome by <a href="http://fortawesome.github.io/Font-Awesome/" target="github">Dave Grandy</a>.
+    </p>
+</footer></header>
+    <div id="post-container">
+        <ol id="post-list">
+            <li>
+                <article class="post-entry">
+                    <header class="entry-header">
+                        <time class="post-time" datetime="2013-05-17T00:12:41+08:00" pubdate>
+                            2013年05月17日 周五
+                        </time>
+                        <a href="https://cupen.github.io/usexdebug.html" rel="bookmark"><h1>小用xdebug</h1></a>
+                    </header>
+
+                    <section class="post-content">
+                        <p>经常忘了xdebug的配置，搜索文档效率太低，姑且挑出常用的配置记录一下。</p>
+<div class="line-block">
+<div class="line">关于IDE和一些其它周边工具以后再补充吧。</div>
+<div class="line">超详细的使用实例: <a class="reference external" href="http://xdebug.org/docs/all">http://xdebug.org/docs/all</a></div>
+<div class="line">超详细的配置说明: <a class="reference external" href="http://xdebug.org/docs/all_settings">http://xdebug.org/docs/all_settings</a></div>
+</div>
+<pre class="code ini literal-block">
+<span class="k">[XDebug]</span>
+<span class="c1">; 所有可配置项见 http://xdebug.org/docs/all_settings</span>
+<span class="na">zend_extension</span> <span class="o">=</span> <span class="s">&quot;/usr/local/app/bin/php/ext/php_xdebug.so&quot;</span>
+
+<span class="c1">; 分析信息用追加方式写入文件，</span>
+<span class="c1">; 使用触发的方式，不需要每次运行都分析。 在参数或者cookie里加入 XDEBUG_PROFILE</span>
+<span class="na">xdebug.profiler_append</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">xdebug.profiler_enable</span> <span class="o">=</span> <span class="s">0</span>
+<span class="na">xdebug.profiler_enable_trigger</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="c1">; 配置文件存放位置 %s表示脚本名（带路径）</span>
+<span class="c1">; 文件名含义同trace_output_name, 见：http://xdebug.org/docs/all_settings#trace_output_name</span>
+<span class="na">xdebug.profiler_output_dir</span> <span class="o">=</span> <span class="s">&quot;/usr/local/app/bin/php/trace/profiler/&quot;</span>
+<span class="na">xdebug.profiler_output_name</span> <span class="o">=</span> <span class="s">&quot;profiler.%s.txt&quot;</span>
+
+<span class="c1">; 远程调试相关的设置</span>
+<span class="na">xdebug.remote_enable</span> <span class="o">=</span> <span class="s">on</span>
+<span class="na">xdebug.remote_handler</span> <span class="o">=</span> <span class="s">&quot;dbgp&quot;</span>
+<span class="na">xdebug.remote_host</span> <span class="o">=</span> <span class="s">&quot;127.0.0.1&quot;</span>
+<span class="na">xdebug.remote_prot</span> <span class="o">=</span> <span class="s">9000</span>
+
+<span class="c1">; trace文件的存放</span>
+<span class="c1">; 文件名含义见 http://xdebug.org/docs/all_settings#trace_output_name</span>
+<span class="na">xdebug.trace_output_dir</span> <span class="o">=</span> <span class="s">&quot;/usr/local/app/bin/php/trace/trace/&quot;</span>
+<span class="na">xdebug.trace_output_name</span> <span class="o">=</span> <span class="s">&quot;trace.%s&quot;</span>
+
+<span class="c1">; trace信息是否按是否以追加方式写入到文件（为啥不是apend？）</span>
+<span class="c1">; 0 表示覆盖式写入文件</span>
+<span class="c1">; 1 表示追加式写入文件</span>
+<span class="na">xdebug.trace_options</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="c1">; 不需要自动trace,除非你希望每次执行都会trace(与auto_trace互斥)</span>
+    <span class="c1">; 触发trace的方式: 在参数或cookie里加入XDEBUG_TRACE</span>
+<span class="na">xdebug.auto_trace</span> <span class="o">=</span> <span class="s">0</span>
+<span class="na">xdebug.trace_enable_trigger</span> <span class="o">=</span> <span class="s">1</span>
+
+
+<span class="c1">; 收集变量的赋值</span>
+<span class="na">xdebug.collect_assignments</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="c1">; 收集-包含语句</span>
+<span class="c1">; 使用 include(), include_once(), require() require_once()引入的脚本名会被记录下来</span>
+<span class="na">xdebug.collect_includes</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="c1">; 收集函数的参数</span>
+<span class="c1">; 1 表示仅记录参数类型和长度 (f.e. string(6), array(8))</span>
+<span class="c1">; 2 表示仅记录参数类型和长度 ，以及简略信息。 （好吧，我懒得用这个参数，不知具体效果）</span>
+<span class="c1">; 3 表示仅记录参数的内容 至于记录的限度，得看关于变量显示限度的设置</span>
+<span class="c1">;           xdebug.var_display_max_children,</span>
+<span class="c1">;           xdebug.var_display_max_data</span>
+<span class="c1">;           xdebug.var_display_max_depth.</span>
+<span class="c1">; 4 表示记录参数的名字和全部内容，不受变量显示限度设置的影响</span>
+<span class="na">xdebug.collect_params</span> <span class="o">=</span> <span class="s">4</span>
+
+<span class="c1">; 收集函数的返回值</span>
+<span class="na">xdebug.collect_return</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="c1">; trace信息格式</span>
+<span class="c1">; 0 给人看的格式（默认值）</span>
+<span class="c1">; 1 给程序解析用的格式 （给其它工具设计的）</span>
+<span class="c1">; 2 html文本（信息量太少了）</span>
+<span class="na">xdebug.trace_format</span> <span class="o">=</span> <span class="s">0</span>
+</pre>
+
+                    </section>
+                    <hr/>
+                    <aside class="post-meta">
+                        <p>Category: <a href="https://cupen.github.io/category/text.html">text</a></p>
+                        <p>Tags: <a href="https://cupen.github.io/tag/xdebug.html">xdebug</a>, <a href="https://cupen.github.io/tag/php.html">php</a>, </p>
+                    </aside>
+                    <hr/>
+                </article>
+            </li>
+        </ol>
+    </div>
+        </div>
+
+        <script src="https://cupen.github.io/theme/js/main.js"></script>
+    </body>
+</html>

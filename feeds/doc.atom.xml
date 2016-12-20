@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>无所不为轩</title><link href="http://cupen.github.com/" rel="alternate"></link><link href="http://cupen.github.com/feeds%5Cdoc.atom.xml" rel="self"></link><id>http://cupen.github.com/</id><updated>2013-04-01T01:44:55+08:00</updated><entry><title>pelican初步使用</title><link href="http://cupen.github.com/my-super-post.html" rel="alternate"></link><updated>2013-04-01T01:44:55+08:00</updated><author><name>Cupen&lt;Cupenoruler AT foxmail DOT com&gt;</name></author><id>tag:cupen.github.com,2013-04-01:my-super-post.html</id><summary type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>吹水轩 - doc</title><link href="https://cupen.github.io/" rel="alternate"></link><link href="https://cupen.github.io/feeds/doc.atom.xml" rel="self"></link><id>https://cupen.github.io/</id><updated>2013-04-01T01:44:55+08:00</updated><entry><title>pelican初步使用</title><link href="https://cupen.github.io/usepelican.html" rel="alternate"></link><published>2013-04-01T01:44:55+08:00</published><updated>2013-04-01T01:44:55+08:00</updated><author><name>cupen</name></author><id>tag:cupen.github.io,2013-04-01:/usepelican.html</id><summary type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="pelican"></category><category term="doc"></category></entry></feed>
+</summary><content type="html">&lt;p&gt;准备列一个pelican的初步使用说明~&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;好吧，这个已经被说的很多了，我就不重复吹了。实在懒得话就看一下文档里的quick-satrt。&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="pelican"></category><category term="doc"></category></entry></feed>
