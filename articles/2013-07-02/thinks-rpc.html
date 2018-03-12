@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>    怪想法—关于"请求-应答"式协议在游戏上的应用
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+            <link rel="stylesheet" href="https://cupen.github.io/theme/css/normalize.css">
+        <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cupen.github.io/theme/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cupen.github.io/theme/css/main.css">
+
+    <link rel="stylesheet" href="https://cupen.github.io/theme/css/blog.css">
+    <link rel="stylesheet" href="https://cupen.github.io/theme/css/github.css">
+        <script src="https://cupen.github.io/theme/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="wrapper">
+<header id="sidebar" class="side-shadow">
+    <hgroup id="site-header">
+        <a id="site-title" href="https://cupen.github.io"><h1><i class="icon-coffee"></i> 吹水轩</h1></a>
+        <p id="site-desc"> 吃饭、睡觉、看书、抬杠。 </p>
+    </hgroup>
+    <nav>
+        <ul id="nav-links">
+                <li><a href="https://cupen.github.io/pages/about.html">关于</a></li>
+                <li><a href="https://cupen.github.io/pages/duo-ming-qing-dan.html">夺命清单</a></li>
+        </ul>
+    </nav>
+<footer id="site-info">
+</footer></header>
+    <div id="post-container">
+        <ol id="post-list">
+            <li>
+                <article class="post-entry">
+                    <header class="entry-header">
+                        <time class="post-time" datetime="2013-07-02T01:33:26+08:00" pubdate>
+                            2013年07月02日 Tuesday
+                        </time>
+                        <a href="https://cupen.github.io/articles/2013-07-02/thinks-rpc.html" rel="bookmark"><h1>怪想法—关于&quot;请求-应答&quot;式协议在游戏上的应用</h1></a>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="section" id="id2">
+<h2>前言</h2>
+<p>这篇水文只是对过去工作中某个问题的复盘和总结，描述了“请求-应答”式协议（就是 HTTP）的一种另类用法。
+尽管本文并不是吹 RPC 实现，但在全双工通信协议（如 TCP）中也有类似的用法，比如用 {方法标识 + 参数数据} 构成 TCP 数据流就能实现 RPC,
+你甚至还能通过加入更多标识来折腾出更多花样（比如跟踪请求栈），但这超出了这篇水文的吹扯范围。</p>
+</div>
+<div class="section" id="id3">
+<h2>正文</h2>
+<p>本想法的应用场景仅限于“请求-应答”式的数据交换方式下（如 HTTP）。
+先描述一个普通 web 应用的运作流程( 不要在意细节 ;b )</p>
+<ol class="arabic simple">
+<li>Client 向 Server 发出请求;</li>
+<li>Server 收到请求，处理并返回应答;</li>
+<li>Client 收到应答，解读;</li>
+</ol>
+<p>普通 web 应用的运作过程就是不断地重复以上步骤。这有点像我们人与人之间对话的过程，我将之拟人化也毫不违和：</p>
+<ol class="arabic simple">
+<li>Client 君向 Server 君提问;</li>
+<li>Server 君回答 Client 君;</li>
+<li>Client 君收到回答，并根据答案做出反应;</li>
+</ol>
+<p>奈何程序员能力有限，还无法让 Client 与 Server 如人一样用自然语言对话。他们只能为 Client 和 Server 立一个约定，这个约定
+定义了 Client 与 Server 之间传递的各项数据的含义。Server 按约定来提供数据，Client 按约定来解读数据。至于数据的格式，属
+于题外话。</p>
+<blockquote>
+（题外话：二进制如 Msgpack, Protocol buffers 等等，可读文本如 JSON, XML, 甚至是脚本语言源码（如 JavaScript））</blockquote>
+<p>如此，项目一开始程序员们分分钟就约定好了数据的含义：“接口 A 返回数据 dataA，接口 B 返回数据 dataB……”。Client 和 Server
+轻松快乐地进行着“你问我答”，程序员们便安心回家睡觉觉了，皆大欢喜……</p>
+<p>意淫结束，游戏毕竟不同于普通 web 应用，Client 与 Server 之间存在频繁的交互，大量的接口，却重复交换着有限的几坨数据，来来去去就是些玩家属性、玩家钱包、玩家背包、怪物属性 blahblah……
+这里 用 JSON 举个例子，数据来自商店购买接口：</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_code_&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;var1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;var2&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;sub_var2&quot;</span><span class="p">:</span> <span class="s2">&quot;shit&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;coin&quot;</span><span class="p">:</span> <span class="mi">-100</span><span class="p">,</span>
+    <span class="nt">&quot;gold&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;equip&quot;</span> <span class="mi">10086</span>
+<span class="p">}</span>
+</pre></div>
+<p>你可能会鄙视我：“雀，这还不简单！我用脚趾头就能摆平嘛！”，且容我解释下，这个例子是简化过的，并且别的接口比如刷副本掉落、PVP砍人掉落、奖品兑换、活动奖励
+等等都他喵会返回类似的数据。不止如此，说不准哪天策划一拍大腿，还会多几种货币或者背包资源类型。</p>
+<p>现在可以看出问题了吧？主要就两点：</p>
+<ol class="arabic simple">
+<li>数据含义的约定难以复用。多个接口返回的数据中都包含了 dataX，可怜的客户端没完没了地在不同的上下文处理同样的数据。</li>
+<li>数据含义的约定与提供数据的 Server 接口绑死。于是 Server 接口 A 必须返回约定好的 dataA, 不能是 dataB, 否则霹雳啪啪轰隆
+咔咔出事故扣工资卷铺盖。当然，你也可以约定好接口 A 会返回 dataA 或 dataB, 但这又回到问题&quot;1&quot;了。</li>
+</ol>
+<p>玩命领加班费很没意思，是时候加一丁点设计了。我给每个数据集合加入唯一标识（非绝对唯一，仅让不同数据集合的标识唯一即可），而数据含义则围绕着唯一标
+识来进行约定，Client 根据这个唯一标识来处理对应的数据集合。如此，每个数据集合都通过唯一标识来区分，只要 Server 接口返回了带有
+这个唯一标识的数据集合，Client 都能根据唯一标识来正确解读，并且客户端只需要实现一次。</p>
+<p>仍然使用 json 描述改良后的数据：</p>
+<div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="err">#</span> <span class="err">当前接口的返回状态</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;_code_&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;var1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;var2&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;sub_var2&quot;</span><span class="p">:</span> <span class="s2">&quot;shit&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="err">#</span> <span class="err">玩家钱包状态变化</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;_msgtype_&quot;</span><span class="p">:</span> <span class="s2">&quot;money&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;coin&quot;</span><span class="p">:</span> <span class="mi">-100</span><span class="p">,</span>
+        <span class="nt">&quot;gold&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="err">#</span> <span class="err">玩家背包状态变化</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;_msgtype_&quot;</span><span class="p">:</span> <span class="s2">&quot;bag&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;equip&quot;</span><span class="p">:</span> <span class="mi">10086</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+<p>客户端现在只需要根据 <cite>_msgtype_</cite> 绑定到不同的方法上即可，细节不表。现在处理服务端的响应就会容易得多了。比如这样：</p>
+<div class="highlight"><pre><span></span><span class="n">GameResponse</span> <span class="n">resp</span> <span class="o">=</span> <span class="n">gameserver</span><span class="o">.</span><span class="na">methodXX</span><span class="o">();</span>
+<span class="n">player</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">msgs</span><span class="o">);</span>  <span class="err">#</span> <span class="n">同步状态</span>
+<span class="nf">if</span> <span class="o">(!</span> <span class="n">resp</span><span class="o">.</span><span class="na">isOK</span><span class="o">()){</span>
+   <span class="k">throw</span> <span class="n">Shit</span><span class="o">(</span><span class="n">resp</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="c1">// blahblah……</span>
+<span class="k">return</span><span class="o">;</span>
+</pre></div>
+<p>如此这般，开发起来会顺手不少。</p>
+<p>完。</p>
+</div>
+
+                    </section>
+                    <hr/>
+                    <aside class="post-meta">
+                        <p>Category: <a href="https://cupen.github.io/category/articles.html">articles</a></p>
+                    </aside>
+                    <hr/>
+
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /* See https://disqus.com/admin/install/platforms/universalcode/ */
+    var disqus_config = function () {
+        // this.page.url = 'articles/2013-07-02/thinks-rpc.html';
+        this.page.identifier = 'articles/2013-07-02/thinks-rpc.html';
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://cupen.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+                </article>
+            </li>
+        </ol>
+    </div>
+        </div>
+
+        <script src="https://cupen.github.io/theme/js/main.js"></script>
+    </body>
+</html>
