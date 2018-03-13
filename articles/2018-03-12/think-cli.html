@@ -47,26 +47,26 @@
                         <time class="post-time" datetime="2018-03-12T19:06:22+08:00" pubdate>
                             2018年03月12日 Monday
                         </time>
-                        <a href="https://cupen.github.io/articles/2018-03-12/gei-cheng-xu-tian-jia-ming-ling-xing-jie-kou-clide-yi-dian-ti-yan.html" rel="bookmark"><h1>给程序添加命令行接口（CLI）的一点体验</h1></a>
+                        <a href="https://cupen.github.io/articles/2018-03-12/think-cli.html" rel="bookmark"><h1>给程序添加命令行接口（CLI）的一点体验</h1></a>
                     </header>
 
                     <section class="post-content">
-                        <p>程序实际运行时总会需要些外部参数，这些参数跟具体的环境有关。服务端一般会直接配置在固定路径下的文件中，但这样缺乏一点灵活性，对开发和运维都不太友好。所以，如果参数不那么繁杂，使用 <a href="https://en.wikipedia.org/wiki/Command-line_interface">CLI</a> (Command-line interface) 是更明智的，而这也是开源社区所推崇的设计，开发和运维用了都说好，大家一口气上五楼。</p>
+                        <p>程序实际运行时总会需要些外部参数，这些参数跟具体的环境有关。服务端一般会直接配置在固定路径下的文件中，但这样缺乏一点灵活性，对开发和运维都不太友好。所以，如果参数不那么繁杂，使用 <a href="https://en.wikipedia.org/wiki/Command-line_interface">CLI</a> (Command-line interface) 是更明智的，而这也是开源社区所推崇的设计。开发和运维用了都说好，大家一口气上五楼。</p>
 <p>用归用，但实现过程是否 sucks，不同的 CLI 库风格是不太一样的。 </p>
-<h1>以下是我见过的几种风格</h1>
-<h2>Library</h2>
+<h2>以下是我见过的几种风格</h2>
+<h3>Library</h3>
 <p>普通的函数库。一般会提供添加参数、添加子命令等等这样的 api,用于手工构造出 parser。使用构造好的 parser 解析参数，一般不提供直接 bind 到函数的 api，需要你自己手工去做。作为 parser 到这个份上是足够了，剩下的事毕竟不是 parser 该做的。</p>
 <ul>
 <li>Python <a href="https://docs.python.org/3/library/argparse.html">argpase</a></li>
 <li>C <a href="https://github.com/cofyc/argparse">argpase</a>  </li>
 <li>C <a href="https://www.gnu.org/software/libc/manual/html_node/Example-of-Getopt.html#Example-of-Getopt">getopt</a></li>
 </ul>
-<h2>DSL</h2>
+<h3>DSL</h3>
 <p>非常酷，你只需要用纯文本完整地写出 Help 信息（这个 DSL 语法就是 Help 内容），它会通过解析这个文本来生成 parser。非常直观，不依赖任何语言特性，于是在所有语言里都能实现出一致的体验，实际上也都实现了…… 但和 argparse 一样，只提供了参数解析部分。bind 到具体的函数上需要你自己动手。</p>
 <ul>
 <li><a href="http://docopt.org/">docopt</a>  </li>
 </ul>
-<h2>根据函数信息直接生成参数 parser 和函数 binding</h2>
+<h3>根据函数信息直接生成参数 parser 和函数 binding</h3>
 <p>这种方式比较依赖语言的元编程特性，至少也得有反射机制支持动态获取函数参数列表和动态调用函数。Python 连函数注释都作为函数的属性而存在，于是就能直接解析注释里的参数信息来生成 parser。像 C 这样的语言是实现不了的，但 C++ 似乎可以，只可惜 C++ 社区品味对用户友好性并不太上心，总是沉迷于各种编译姿势，玩依赖捉迷藏。</p>
 <ul>
 <li>Python <a href="https://github.com/shmuelamar/cbox">cbox</a></li>
@@ -86,8 +86,8 @@
     <script>
     /* See https://disqus.com/admin/install/platforms/universalcode/ */
     var disqus_config = function () {
-        // this.page.url = 'articles/2018-03-12/gei-cheng-xu-tian-jia-ming-ling-xing-jie-kou-clide-yi-dian-ti-yan.html';
-        this.page.identifier = 'articles/2018-03-12/gei-cheng-xu-tian-jia-ming-ling-xing-jie-kou-clide-yi-dian-ti-yan.html';
+        // this.page.url = 'articles/2018-03-12/think-cli.html';
+        this.page.identifier = 'articles/2018-03-12/think-cli.html';
     };
     
     (function() { // DON'T EDIT BELOW THIS LINE
