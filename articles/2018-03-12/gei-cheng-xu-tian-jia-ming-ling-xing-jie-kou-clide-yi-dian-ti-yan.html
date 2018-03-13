@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>    给程序添加命令行接口（CLI）的一点体验
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+            <link rel="stylesheet" href="https://cupen.github.io/theme/css/normalize.css">
+        <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cupen.github.io/theme/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cupen.github.io/theme/css/main.css">
+
+    <link rel="stylesheet" href="https://cupen.github.io/theme/css/blog.css">
+    <link rel="stylesheet" href="https://cupen.github.io/theme/css/github.css">
+        <script src="https://cupen.github.io/theme/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="wrapper">
+<header id="sidebar" class="side-shadow">
+    <hgroup id="site-header">
+        <a id="site-title" href="https://cupen.github.io"><h1><i class="icon-coffee"></i> 吹水轩</h1></a>
+        <p id="site-desc"> 吃饭、睡觉、看书、抬杠。 </p>
+    </hgroup>
+    <nav>
+        <ul id="nav-links">
+                <li><a href="https://cupen.github.io/pages/about.html">关于</a></li>
+                <li><a href="https://cupen.github.io/pages/duo-ming-qing-dan.html">夺命清单</a></li>
+        </ul>
+    </nav>
+<footer id="site-info">
+</footer></header>
+    <div id="post-container">
+        <ol id="post-list">
+            <li>
+                <article class="post-entry">
+                    <header class="entry-header">
+                        <time class="post-time" datetime="2018-03-12T19:06:22+08:00" pubdate>
+                            2018年03月12日 Monday
+                        </time>
+                        <a href="https://cupen.github.io/articles/2018-03-12/gei-cheng-xu-tian-jia-ming-ling-xing-jie-kou-clide-yi-dian-ti-yan.html" rel="bookmark"><h1>给程序添加命令行接口（CLI）的一点体验</h1></a>
+                    </header>
+
+                    <section class="post-content">
+                        <p>程序实际运行时总会需要些外部参数，这些参数跟具体的环境有关。服务端一般会直接配置在固定路径下的文件中，但这样缺乏一点灵活性，对开发和运维都不太友好。所以，如果参数不那么繁杂，使用 <a href="https://en.wikipedia.org/wiki/Command-line_interface">CLI</a> (Command-line interface) 是更明智的，而这也是开源社区所推崇的设计，开发和运维用了都说好，大家一口气上五楼。</p>
+<p>用归用，但实现过程是否 sucks，不同的 CLI 库风格是不太一样的。 </p>
+<h1>以下是我见过的几种风格</h1>
+<h2>Library</h2>
+<p>普通的函数库。一般会提供添加参数、添加子命令等等这样的 api,用于手工构造出 parser。使用构造好的 parser 解析参数，一般不提供直接 bind 到函数的 api，需要你自己手工去做。作为 parser 到这个份上是足够了，剩下的事毕竟不是 parser 该做的。</p>
+<ul>
+<li>Python <a href="https://docs.python.org/3/library/argparse.html">argpase</a></li>
+<li>C <a href="https://github.com/cofyc/argparse">argpase</a>  </li>
+<li>C <a href="https://www.gnu.org/software/libc/manual/html_node/Example-of-Getopt.html#Example-of-Getopt">getopt</a></li>
+</ul>
+<h2>DSL</h2>
+<p>非常酷，你只需要用纯文本完整地写出 Help 信息（这个 DSL 语法就是 Help 内容），它会通过解析这个文本来生成 parser。非常直观，不依赖任何语言特性，于是在所有语言里都能实现出一致的体验，实际上也都实现了…… 但和 argparse 一样，只提供了参数解析部分。bind 到具体的函数上需要你自己动手。</p>
+<ul>
+<li><a href="http://docopt.org/">docopt</a>  </li>
+</ul>
+<h2>根据函数信息直接生成参数 parser 和函数 binding</h2>
+<p>这种方式比较依赖语言的元编程特性，至少也得有反射机制支持动态获取函数参数列表和动态调用函数。Python 连函数注释都作为函数的属性而存在，于是就能直接解析注释里的参数信息来生成 parser。像 C 这样的语言是实现不了的，但 C++ 似乎可以，只可惜 C++ 社区品味对用户友好性并不太上心。</p>
+<ul>
+<li>Python <a href="https://github.com/shmuelamar/cbox">cbox</a></li>
+<li>Python <a href="https://github.com/pallets/click">click</a></li>
+<li>Java <a href="http://picocli.info/">picocli</a></li>
+</ul>
+<p>完。</p>
+                    </section>
+                    <hr/>
+                    <aside class="post-meta">
+                        <p>Category: <a href="https://cupen.github.io/category/drafts.html">drafts</a></p>
+                    </aside>
+                    <hr/>
+
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /* See https://disqus.com/admin/install/platforms/universalcode/ */
+    var disqus_config = function () {
+        // this.page.url = 'articles/2018-03-12/gei-cheng-xu-tian-jia-ming-ling-xing-jie-kou-clide-yi-dian-ti-yan.html';
+        this.page.identifier = 'articles/2018-03-12/gei-cheng-xu-tian-jia-ming-ling-xing-jie-kou-clide-yi-dian-ti-yan.html';
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://cupen.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+                </article>
+            </li>
+        </ol>
+    </div>
+        </div>
+
+        <script src="https://cupen.github.io/theme/js/main.js"></script>
+    </body>
+</html>
