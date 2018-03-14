@@ -128,8 +128,8 @@
 </pre></div>
 <p>客户端现在只需要根据 <cite>_msgtype_</cite> 绑定到不同的方法上即可，细节不表。现在处理服务端的响应就会容易得多了。比如这样：</p>
 <div class="highlight"><pre><span></span><span class="n">GameResponse</span> <span class="n">resp</span> <span class="o">=</span> <span class="n">gameserver</span><span class="o">.</span><span class="na">methodXX</span><span class="o">();</span>
-<span class="n">player</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">msgs</span><span class="o">);</span>  <span class="err">#</span> <span class="n">同步状态</span>
-<span class="nf">if</span> <span class="o">(!</span> <span class="n">resp</span><span class="o">.</span><span class="na">isOK</span><span class="o">()){</span>
+<span class="n">player</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">msgs</span><span class="o">);</span>  <span class="c1">// 同步状态</span>
+<span class="k">if</span> <span class="o">(!</span> <span class="n">resp</span><span class="o">.</span><span class="na">isOK</span><span class="o">()){</span>
    <span class="k">throw</span> <span class="n">Shit</span><span class="o">(</span><span class="n">resp</span><span class="o">);</span>
 <span class="o">}</span>
 <span class="c1">// blahblah……</span>

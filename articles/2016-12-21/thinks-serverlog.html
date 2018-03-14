@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>    关于服务端日志的若干历史问题
+        <title>    关于从业以来服务端日志的若干历史问题的决议
 </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
@@ -47,13 +47,57 @@
                         <time class="post-time" datetime="2016-12-21T03:19:00+08:00" pubdate>
                             2016年12月21日 Wednesday
                         </time>
-                        <a href="https://cupen.github.io/articles/2016-12-21/thinks-serverlog.html" rel="bookmark"><h1>关于服务端日志的若干历史问题</h1></a>
+                        <a href="https://cupen.github.io/articles/2016-12-21/thinks-serverlog.html" rel="bookmark"><h1>关于从业以来服务端日志的若干历史问题的决议</h1></a>
                     </header>
 
                     <section class="post-content">
-                        <p>嗯，没错，服务端都会写日志，既用于跟踪程序状态，也用于业务分析。</p>
-<p>一开始，我们会记录在文件里，简单有效。随着日志的增多，你会开始分类，分日期存放。
-后来区区几个进程已经满足不了业务需要了，你开始把程序分布式化。结果日志也散布在不同的机器上了。后来你灵光一闪，日志都汇集到不是</p>
+                        <div class="line-block">
+<div class="line">服务端日志，</div>
+<div class="line">既用于跟踪程序状态，</div>
+<div class="line">又用于数据分析，</div>
+<div class="line">是非常重要的战略物资。</div>
+</div>
+<div class="line-block">
+<div class="line">我们要将之一个不漏地</div>
+<div class="line">收集起来，</div>
+<div class="line">科学地、</div>
+<div class="line">有规划地使用。</div>
+</div>
+<div class="line-block">
+<div class="line">-- 爱因斯坦</div>
+</div>
+<p>一开始，我们把日志记录在文件里，简单有效。随着日志增多，我们开始分类分日期存放。</p>
+<p>后来，区区一两个进程恐怕满足不了业务需要，程序得拆成分布式分而治之，但日志也就此散落在不同机器上了。好在规模不大，还可以苟且一下。</p>
+<p>再后来，我们游戏开一连串新服，日志散落得情况更加严重了。不光是查程序状态日志要苟且了，连数据分析也开始乱套，聚合类统计压根无法进行，只能靠手工汇总来苟且，实在是凄惨。</p>
+<p>于是我们意识到一个中心化的日志收集服务管理起来更容易，但直接迁移到开源方案上没啥底气（主要是害怕日志收集服务宕机导致丢日志）。只好折中，使用
+rsync 将所有机器上的日志同步到一起，简单易用，成果直观。但弊端也有，最先造成麻烦的是实时性。网上倒有 inotify 配合 rsync 的解决方案，见例子:</p>
+<div class="highlight"><pre><span></span><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
+    inotifywait -r -e modify,attrib,close_write,move,create,delete /path/to/src_dir/
+    rsync -avz /path/to/src_dir/ logporter@gameserver01:/path/to/dest_dir/
+<span class="k">done</span>
+</pre></div>
+<p>但总体还是有很大瑕疵，主要在于：</p>
+<ol class="arabic simple">
+<li>rsync 每次启动都会重读源目录和目标目录下的所有文件内容来分块算 hash 对比来进行增量同步。频繁启动的话，CPU 负载线会特别难看，尽管可以按日期分目录，但也只是五十步笑百步。</li>
+<li>理论上，从 rsync 进程启动后到下一轮 inotifywait 进程启动前总有一定的真空期，哪怕是按微秒计也总是存在的。倘若这个真空期内有文件发生变化，而真空期结束后又碰巧没再发生文件变化
+（正常情况，比如玩家全流失变鬼服了、运维停服换机器等等），那 inotifywait 就察觉不到了。当然，实际发生的概率有多小，也许并不值得讨论，但总归看不太顺眼啊……</li>
+</ol>
+<p>综上，rsync 方案并没有多好，付出了很大代价（比如硬件资源、再比如我感到惭愧导致心理压力、还比如运维工作量）才换来分布式环境下日志中心化的局面。</p>
+<p>但无论如何，这个问题算是按下了，可其它问题却显得尖锐起来。比如我们检索程序状态日志要反复地 <cite>grep -E $regex</cite> 一堆纯文本，正则动不动就复杂到需要抄小本本。
+而数据分析方面，我们迫切需要日志能实时清洗落地到关系型数据库，以支持使用 sql 查结果，以减少各种硬编码统计代码带来的混乱。我实现了配合 rsync 并通过 seek 文件读取位置来进行增量导入的中间过程，
+跑起来还凑合，只是提供的接口跟 logstash 比起来还是丑了点，而且运维工作上又多了个旁门左道的常驻进程要管理。</p>
+<p>还是得有更高生产力的日志收集方案才能支撑的更好啊。</p>
+<p>某日和杨百万吹水，偶然聊到日志传输的的问题，得知他们使用 flume 来解决“丢日志”的问题。很有意思，flume 和产生日志的进程部署在同一台机器上，无需考虑网络问题，要挂也一块挂。
+而凡是达到 flume 的日志则由 flume 来保证必达，无需服务端进程对此做处理。具体原理有待探究，应该不止于超时重试这么简单粗暴……</p>
+<p>剩下的事，用 kafka 做数据中转中心也就顺利成章了，其它小事比如：
+* 将程序状态跟踪日志输出倒 Elasticsearch 进行检索以取代 grep
+* 将数据分析用的日志导入 PostgreSQL 做实时数据仓库（pgsql 的 OLAP 能力公认还是强于 mysql 的），用 SQL 做统计比硬编码方便太多，再不济也能用 pandas 基于数据库里的数据做统计。</p>
+<p>大事可期矣！</p>
+<div class="section" id="id2">
+<h2>后记</h2>
+<p>这篇水文整理自我个人的印象笔记里记录的一些七零八落的碎片，旨在留下点面包屑做指引，避免重复挖坑。从 2016年12月起动笔念头到现在 2018年3月才算落地完…… 跨度有点久。
+相信不止我一人有这种类似的经历，也肯定有人一开始就站在了我想要到达的地方。不过这都不重要了，我们应该着眼于当下，积极接纳更先进的生产力才事。</p>
+</div>
 
                     </section>
                     <hr/>
