@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>    给程序添加命令行接口（CLI）的一点体验
+        <title>    配置管理哪家强
 </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
@@ -44,38 +44,15 @@
             <li>
                 <article class="post-entry">
                     <header class="entry-header">
-                        <time class="post-time" datetime="2018-03-12T19:06:22+08:00" pubdate>
-                            2018年03月12日 Monday
+                        <time class="post-time" datetime="2018-03-29T14:56:03+08:00" pubdate>
+                            2018年03月29日 Thursday
                         </time>
-                        <a href="https://cupen.github.io/articles/2018-03-12/thinks-cli.html" rel="bookmark"><h1>给程序添加命令行接口（CLI）的一点体验</h1></a>
+                        <a href="https://cupen.github.io/articles/2018-03-29/thinks-config.html" rel="bookmark"><h1>配置管理哪家强</h1></a>
                     </header>
 
                     <section class="post-content">
-                        <p>程序实际运行时总会需要些外部参数，这些参数跟具体的环境有关。服务端一般会直接配置在固定路径下的文件中，但这样缺乏一点灵活性，对开发和运维都不太友好。所以，如果参数不那么繁杂，使用 <a href="https://en.wikipedia.org/wiki/Command-line_interface">CLI</a> (Command-line interface) 是更明智的，而这也是开源社区所推崇的设计。开发和运维用了都说好，大家一口气上五楼。</p>
-<p>用归用，但实现过程是否 sucks，不同的 CLI 实现风格是不太一样的。 </p>
-<h2>以下是我见过的几种风格</h2>
-<h3>Library</h3>
-<p>普通的函数库。一般会提供【添加参数】、【添加子命令】这样的 api, 用于构造出 parser ，以解析命令行参数。一般不提供【bind 到函数】之类的 api，需要你自己手工去做。但其实做到这个份上已经足够了，剩下的事不是 parser 该做的。</p>
-<ul>
-<li>Python <a href="https://docs.python.org/3/library/argparse.html">argpase</a></li>
-<li>C <a href="https://github.com/cofyc/argparse">argpase</a></li>
-<li>C <a href="https://www.gnu.org/software/libc/manual/html_node/Example-of-Getopt.html#Example-of-Getopt">getopt</a></li>
-</ul>
-<h3>DSL</h3>
-<p>非常酷，你只需要用纯文本完整地写出 Help 信息（这个 DSL 语法就是 Help 内容），它会通过解析这个文本来生成 parser。非常直观，不依赖任何语言特性，于是在所有语言里都能实现出一致的体验，实际上也都实现了…… 但和 argparse 一样只是个 parser ，需要你自己调用具体的函数。</p>
-<ul>
-<li><a href="http://docopt.org/">docopt</a>  </li>
-</ul>
-<h3>元编程——根据函数信息直接生成参数 parser 和函数 binding</h3>
-<p>这种方式比较依赖语言的元编程特性，至少也得有反射机制支持动态获取函数参数列表和动态调用函数。Python 连函数注释都作为函数的属性而存在，于是就能直接解析注释里的参数信息来生成 parser。像 C 这样的语言是实现不了的，但 C++ 似乎可以，只可惜 C++ 社区品味对用户友好性并不太上心，总是沉迷于各种编译姿势，玩依赖寻宝游戏。</p>
-<ul>
-<li>Python <a href="https://github.com/shmuelamar/cbox">cbox</a></li>
-<li>Python <a href="https://github.com/pallets/click">click</a></li>
-<li>Java <a href="http://picocli.info/">picocli</a></li>
-</ul>
-<p>Long may the sun shine!<br>
-Long may the CLI rocks!<br>
-完。</p>
+                        <p>配置</p>
+<p>约定好于配置的一个重大前提：约定符合直觉。</p>
                     </section>
                     <hr/>
                     <aside class="post-meta">
@@ -88,8 +65,8 @@ Long may the CLI rocks!<br>
     <script>
     /* See https://disqus.com/admin/install/platforms/universalcode/ */
     var disqus_config = function () {
-        // this.page.url = 'articles/2018-03-12/thinks-cli.html';
-        this.page.identifier = 'articles/2018-03-12/thinks-cli.html';
+        // this.page.url = 'articles/2018-03-29/thinks-config.html';
+        this.page.identifier = 'articles/2018-03-29/thinks-config.html';
     };
     
     (function() { // DON'T EDIT BELOW THIS LINE
